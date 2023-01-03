@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-50;
+}
+
+a.router-link-active {
+  font-weight: bold;
+}
+a.router-link-exact-active {
+  @apply text-purple-800;
+}
