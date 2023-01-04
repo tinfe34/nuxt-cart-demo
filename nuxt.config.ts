@@ -12,7 +12,8 @@ export default defineNuxtConfig({
       link : [
         {rel :'stylesheet', href : ''}
       ]
-    }
+    },
+    pageTransition: { name: 'page', mode: 'out-in' }
   },
   vite: {
     css: {

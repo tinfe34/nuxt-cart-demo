@@ -14,7 +14,8 @@
           />
         </nuxt-link>
         <div class="flex items-center md:order-2">
-
+          <nuxt-link v-if="!isAuthenticated()" to="/login" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-purple-800 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Login</nuxt-link>
+          <button v-else @click="handleLogout()">Logout</button>
           <button
             type="button"
             data-dropdown-toggle="language-dropdown-menu"
@@ -261,8 +262,10 @@
 </template>
 
 <script>
+import { isAuthenticated } from '@/utils'
 export default {
   setup() {
+    const router = useRouter();
     const state = {
         navLinks : ref([
           {
@@ -279,8 +282,14 @@ export default {
           },
         ])
     }
+
+    const handleLogout = () => {
+      window.localStorage.removeItem('isLoggedIn')
+      router.push('/login')
+    }
     return {
-      navLinks : state.navLinks
+      navLinks : state.navLinks,
+      handleLogout
     };
   },
 };

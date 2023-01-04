@@ -140,7 +140,7 @@ import { required, email, sameAs, minLength } from '@vuelidate/validators';
 
 definePageMeta({
   middleware: 'auth',
-  layout: 'full-page'
+  layout: 'full-page',
 })
 
   const state = reactive({
@@ -158,12 +158,14 @@ definePageMeta({
   });
 
   const v$ = useVuelidate(rules, state)
+  const router = useRouter();
 
   const submitForm = () => {
     v$.value.$validate();
     if (v$.value.$invalid) return
 
     window.localStorage.setItem('isLoggedIn', JSON.stringify(state))
+    router.push({ path: "/" });
   };
 </script>
 

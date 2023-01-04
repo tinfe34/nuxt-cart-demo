@@ -40,3 +40,14 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+Nuxt3:
+
+- Nuxt Config
+- Layout
+- Pages, Component
+- Assets
+- Routing (Middleware, Validate)
+- Seo and Meta
+- Transition
+- Data Fetching
