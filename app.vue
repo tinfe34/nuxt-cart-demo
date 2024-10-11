@@ -1,5 +1,14 @@
+
+import ThemeProvider from './provider/ThemeProvider.vue';
+
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <ThemeProvider>
+    <NuxtLayout >
+      <NuxtPage />
+    </NuxtLayout>
+  </ThemeProvider>
 </template>
+
+<script setup>
+import ThemeProvider from './provider/ThemeProvider.vue';
+</script>

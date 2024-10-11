@@ -14,8 +14,12 @@
           />
         </nuxt-link>
         <div class="flex items-center md:order-2">
-          <nuxt-link v-if="!isAuthenticated()" to="/login" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-purple-800 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Login</nuxt-link>
-          <button v-else @click="handleLogout()">Logout</button>
+          <nuxt-link v-if="!isAuthenticated()" to="/login">
+            <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
+              login
+            </button>
+          </nuxt-link>
+          <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white" v-else @click="handleLogout()">Logout</button>
           <button
             type="button"
             data-dropdown-toggle="language-dropdown-menu"
@@ -267,20 +271,20 @@ export default {
   setup() {
     const router = useRouter();
     const state = {
-        navLinks : ref([
-          {
-            name: 'Home',
-            path : "/"
-          },
-          {
-            name: 'Courses',
-            path : "/courses"
-          },
-          {
-            name: 'About',
-            path : "/about"
-          },
-        ])
+      navLinks : ref([
+        {
+          name: 'Home',
+          path : "/"
+        },
+        {
+          name: 'Courses',
+          path : "/courses"
+        },
+        {
+          name: 'About',
+          path : "/about"
+        },
+      ])
     }
 
     const handleLogout = () => {
